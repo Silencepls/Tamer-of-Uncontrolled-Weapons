@@ -43,6 +43,7 @@ public class BuildingManager : MonoBehaviour
 				g.transform.position = startPos;
 				lastIndex = randomNumber;
 
+				#region testing stuff
 				//int randomNumber = Random.Range(0, buildings.Count + 1);
 				//if(randomNumber == buildings.Count)
 				//{
@@ -67,7 +68,8 @@ public class BuildingManager : MonoBehaviour
 				//	g.transform.position = startPos;
 				//	lastIndex = randomNumber;
 				//	lastObject = g;
-				//}
+				//} 
+				#endregion
 			}
 			count++;
 		};
