@@ -13,6 +13,13 @@ public class Bullet : MonoBehaviour
 
 	private void AutoDestroy()
 	{
+		int randomNumber = Random.Range(0, 6);
+		if (randomNumber == 0)
+		{
+			TimerEvent.Timer -= AutoDestroy;
+			Destroy(gameObject);
+			return;
+		}
 		if (time >= 10)
 		{
 			TimerEvent.Timer -= AutoDestroy;

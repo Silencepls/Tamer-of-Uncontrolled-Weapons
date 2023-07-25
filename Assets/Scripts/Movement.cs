@@ -55,6 +55,8 @@ public class Movement : MonoBehaviour
 	private void ApplyPushForce()
 	{
 		Vector3 pushDirection = -transform.forward;
+		pushDirection.x += Random.Range(-.3f, .3f);
+		pushDirection.z += Random.Range(-.3f, .3f);
 		rb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
 	}
 }

@@ -7,7 +7,7 @@ public class BuildingManager : MonoBehaviour
 {
 	public List<GameObject> buildings;
 	public List<GameObject> sideWalks;
-	public int lastIndex = 0;
+	public int lastIndex = -1;
 
 	public int count = 0;
 
@@ -21,7 +21,23 @@ public class BuildingManager : MonoBehaviour
 			if(count == 5)
 			{
 				count = 0;
-				int randomNumber = Random.Range(0, buildings.Count);
+
+				int randomNumber;
+				if(lastIndex == -1)
+				{
+					randomNumber = Random.Range(0, buildings.Count);
+				}
+				else
+				{
+					randomNumber = Random.Range(0, buildings.Count + 1);
+				}
+
+				if(randomNumber == buildings.Count)
+				{
+					lastIndex = -1;
+					return;
+				}
+
 				switch (lastIndex)
 				{
 					case 1:
