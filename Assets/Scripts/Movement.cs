@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -11,19 +12,32 @@ public class Movement : MonoBehaviour
 
 	private int timer = 0;
 
-	void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-		TimerEvent.Timer += () =>
+	void Awake()
+	{
+		rb = GetComponent<Rigidbody>();
+		GameManager.bullet_event += CheckState;
+	}
+
+	private void CheckState()
+	{
+		if (GameManager.bulletState == BulletState.First)
 		{
-			if (timer == 2)
-			{
-				ApplyPushForce();
-				timer = 0;
-			}
-			timer++;
-		};
-    }
+			TimerEvent.Timer -= FirstStatePush;
+			TimerEvent.Timer += FirstStatePush;
+			return;
+		}
+		TimerEvent.Timer -= FirstStatePush;
+	}
+
+	private void FirstStatePush()
+	{
+		if (timer == 2)
+		{
+			ApplyPushForce();
+			timer = 0;
+		}
+		timer++;
+	}
 
 	private void FixedUpdate()
 	{
