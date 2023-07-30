@@ -10,6 +10,7 @@ public class LaserLogic : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position;
+        if (!PlayerMovement.shouldMove) return;
         Direction();       
     }
 

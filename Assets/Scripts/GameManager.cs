@@ -128,6 +128,12 @@ public class GameManager : MonoBehaviour
 		if (randomNumber == 0 && numberOfRows != 2)
 		{
 			crowds[2].SetActiveCivilians();
+			numberOfRows++;
+		}
+		if(numberOfRows == 0)
+		{
+			crowds[0].SetActiveCivilians();
+			crowds[2].SetActiveCivilians();
 		}
 	}
 }

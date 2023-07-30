@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-	public GameObject bulletPefab;
+	public GameObject firstbulletPefab;
+	public GameObject secondbulletPefab;
 	public float bulletSpeed = 10f;
+
+	public GameObject laser;
+	public GameObject laser_collider;
+
+	public int count = 0;
 
 	private void Awake()
 	{
@@ -44,21 +50,38 @@ public class Shooting : MonoBehaviour
 		Vector3 direction_offseted = transform.forward;
 		direction_offseted.x += Random.Range(-.3f, .3f);
 		direction_offseted.z -= Random.Range(-.3f, .3f);
-		GameObject bullet = Instantiate(bulletPefab, transform.position + transform.forward, Quaternion.identity);
+		GameObject bullet = Instantiate(firstbulletPefab, transform.position + transform.forward, Quaternion.identity);
 		Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 		bulletRb.velocity = direction_offseted.normalized * bulletSpeed;
-
-		// Optionally, you can rotate the bullet to face the shooting direction.
-		//bullet.transform.rotation = Quaternion.LookRotation(direction_offseted, Vector3.up);
 	}
 
 	private void ShootSecondBullet()
 	{
-		Debug.Log("Arroche");
+		Vector3 direction_offseted = transform.forward;
+		direction_offseted.x += Random.Range(-.3f, .3f);
+		direction_offseted.z -= Random.Range(-.3f, .3f);
+		GameObject bullet = Instantiate(secondbulletPefab, transform.position + transform.forward, Quaternion.identity);
+		Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+		bulletRb.velocity = direction_offseted.normalized * bulletSpeed;
 	}
 
 	private void ShootThirdBullet()
 	{
-		Debug.Log("Simbora");
+		if (count >= 20)
+		{
+			laser.SetActive(true);
+			laser_collider.GetComponent<BoxCollider>().enabled = true;
+			PlayerMovement.shouldMove = false;
+			if (count >= 30)
+			{
+				laser.SetActive(false);
+				laser_collider.GetComponent<BoxCollider>().enabled = false;
+				count = 0;
+				PlayerMovement.shouldMove = true;
+				TimerEvent.Timer -= ShootThirdBullet;
+				return;
+			}
+		}
+		count++;
 	}
 }

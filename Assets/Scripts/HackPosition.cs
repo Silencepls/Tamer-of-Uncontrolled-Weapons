@@ -23,6 +23,8 @@ public class HackPosition : MonoBehaviour
 	{
 		transform.position = player.transform.position;
 
+		if (!PlayerMovement.shouldMove) return;
+
 		if (transform.position.x > MyCursor.destination.x)
 		{
 			isRight = false;

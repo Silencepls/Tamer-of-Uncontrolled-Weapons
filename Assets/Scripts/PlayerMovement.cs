@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 	public float moveSpeed = 5f;
 	public float pushForce = 200f; // 200 to 800 | drag = 20 | mass = 10
@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
 	private Rigidbody rb;
 
 	private int timer = 0;
+
+	public static bool shouldMove = true;
 
 	void Awake()
 	{
@@ -41,6 +43,7 @@ public class Movement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		if (!shouldMove) return;
 		HandleRotation();
 		HandleMovement();
 	}
