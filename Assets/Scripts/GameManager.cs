@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 
 	public static List<GameObject> civiliansInMovement = new();
 	public static List<GameObject> civiliansStopped = new();
+	private GameObject object_forTimeEvent;
+
+	public GameObject missileShadow;
 
 	public List<CrowdParent> crowds = new();
 	public GameObject civilian;
@@ -66,7 +69,12 @@ public class GameManager : MonoBehaviour
 				break;
 			
 			case BulletState.Second:
-				SecondState();
+				int randomNumber = Random.Range(0, civiliansInMovement.Count);
+				for (int i = 0; i <= randomNumber; i++)
+				{
+					SecondState();
+				}
+				FallMissileToCivilians();
 				break;	
 			
 			case BulletState.Third:
@@ -75,7 +83,16 @@ public class GameManager : MonoBehaviour
 				break;
 		}
 	}
-	
+
+	private void FallMissileToCivilians()
+	{
+        foreach (var o in civiliansStopped)
+        {
+			GameObject s = Instantiate(missileShadow);
+			s.transform.position = new Vector3(o.transform.position.x, s.transform.position.y, o.transform.position.z);
+        }
+    }
+
 	private void FirstState()
 	{
 		if (timer != -1)
@@ -104,6 +121,7 @@ public class GameManager : MonoBehaviour
 
 		GameObject g = civiliansInMovement[Random.Range(0, civiliansInMovement.Count)];
 		g.GetComponent<CivilianMovement>().cms = new NoMovement();
+		g.tag = "InDanger";
 
 		civiliansInMovement.Remove(g);
 		civiliansStopped.Add(g);

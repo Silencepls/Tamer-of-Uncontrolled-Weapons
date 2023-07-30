@@ -36,7 +36,7 @@ public class Bullet2 : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Civilian"))
+		if (other.CompareTag("InDanger"))
 		{
 			Debug.Log("Saved an Civilian");
 		}
