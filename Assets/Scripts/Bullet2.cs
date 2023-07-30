@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet2 : MonoBehaviour
 {
 	private int time = 0;
 
@@ -40,7 +38,7 @@ public class Bullet : MonoBehaviour
 	{
 		if (other.CompareTag("Civilian"))
 		{
-			Debug.Log("Hurted a Civilian");
+			Debug.Log("Saved an Civilian");
 		}
 	}
 }
