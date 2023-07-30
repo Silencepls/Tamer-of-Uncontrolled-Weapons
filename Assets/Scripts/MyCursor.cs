@@ -9,22 +9,11 @@ public class MyCursor : MonoBehaviour
 	public Vector3 offset;
 	public float offset_val = 1f;
 
-	//private int currentTimer = 0;
 	public int updateRateSeconds = 1;
 
 	private void Start()
 	{
 		Cursor.visible = false;
-		//TimerEvent.Timer += (object sender, TimerEvent.TimerEventHandler e) =>
-		//{
-		//	currentTimer++;
-
-		//	if(currentTimer == updateRateSeconds)
-		//	{
-		//		GenerateOffset();
-		//		currentTimer = 0;
-		//	}
-		//};
 	}
 
 	private void Update()
@@ -38,9 +27,4 @@ public class MyCursor : MonoBehaviour
 
 		transform.position = Vector3.Lerp(transform.position, destination, cursorSpeed * Time.deltaTime);
 	}
-
-	//private void GenerateOffset()
-	//{
-	//	offset = new Vector3(Random.Range(-offset_val, offset_val), transform.position.y, Random.Range(-offset_val, offset_val));
-	//}
 }
