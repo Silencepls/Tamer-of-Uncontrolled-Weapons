@@ -15,7 +15,7 @@ public class CivilianMovement : MonoBehaviour
 	private void Start()
 	{
 		moveSpeed = Random.Range(5f, 15f);
-		destination = new Vector3(-17f, 0.5f, Random.Range(-8f, 8f));
+		destination = new Vector3(-24f, 0.5f, Random.Range(-7.5f, 5f));
 	}
 
 	private void Update()

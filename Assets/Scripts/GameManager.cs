@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 			{
 				GameObject g = Instantiate(civilian);
 				AddToList(g);
-				g.transform.position = new Vector3(17f, 0.5f, Random.Range(-9f, 9f));
+				g.transform.position = new Vector3(24f, 0.5f, Random.Range(-7.5f, 5f));
 				timer = -1;
 			}
 			else

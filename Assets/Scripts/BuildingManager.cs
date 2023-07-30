@@ -10,85 +10,65 @@ public class BuildingManager : MonoBehaviour
 	public int lastIndex = -1;
 
 	public int count = 0;
+	public int _count = 12;
+
+	public int sequence = 0;
 
 	public float _velocity = 0;
 	public static float velocity = 0f;
 
 	private void Start()
 	{
-		TimerEvent.Timer += () =>
+		TimerEvent.Timer += TempLogic;
+	}
+
+	private void TempLogic()
+	{
+		if (sequence == 3)
 		{
-			if(count == 5)
+			sequence = 0;
+		}
+		if (count == _count)
+		{
+			count = 0;
+
+			GameObject g = Instantiate(buildings[sequence]);
+			Vector3 startPos = new(40, g.transform.position.y, g.transform.position.z);
+			g.transform.position = startPos;
+			sequence++;
+		}
+		count++;
+	}
+
+	private void BuildingManagerLocic()
+	{
+		if (count == 12)
+		{
+			count = 0;
+			int randomNumber;
+
+			if (lastIndex == -1)
 			{
-				count = 0;
-
-				int randomNumber;
-				if(lastIndex == -1)
-				{
-					randomNumber = Random.Range(0, buildings.Count);
-				}
-				else
-				{
-					randomNumber = Random.Range(0, buildings.Count + 1);
-				}
-
-				if(randomNumber == buildings.Count)
-				{
-					lastIndex = -1;
-					return;
-				}
-
-				switch (lastIndex)
-				{
-					case 1:
-						if(randomNumber == 2)
-						{
-							randomNumber -= 1;
-						}
-						break;
-					case 2:
-						if(randomNumber == 1)
-						{
-							randomNumber -= 1;
-						}
-						break;
-				}
-				
-				GameObject g = Instantiate(buildings[randomNumber]);
-				Vector3 startPos = new(100, g.transform.position.y, g.transform.position.z);
-				g.transform.position = startPos;
-				lastIndex = randomNumber;
-
-				#region testing stuff
-				//int randomNumber = Random.Range(0, buildings.Count + 1);
-				//if(randomNumber == buildings.Count)
-				//{
-				//	switch(lastIndex)
-				//	{
-				//		case 1:
-				//			Vector3 pos1 = lastObject.transform.position;
-				//			GameObject a = Instantiate(sideWalks[0]);
-				//			a.transform.position = new Vector3(pos1.x + 0.33f, a.transform.position.y, a.transform.position.z);
-				//			break;
-				//		case 2:
-				//			Vector3 pos2 = lastObject.transform.position;
-				//			GameObject b = Instantiate(sideWalks[0]);
-				//			b.transform.position = new Vector3(pos2.x - 15.4f, b.transform.position.y, b.transform.position.z);
-				//			break;
-				//	}
-				//}
-				//else
-				//{
-				//	GameObject g = Instantiate(buildings[randomNumber]);
-				//	Vector3 startPos = new(100, g.transform.position.y, g.transform.position.z);
-				//	g.transform.position = startPos;
-				//	lastIndex = randomNumber;
-				//	lastObject = g;
-				//} 
-				#endregion
+				randomNumber = Random.Range(0, buildings.Count);
 			}
-			count++;
-		};
+			else
+			{
+				randomNumber = Random.Range(0, buildings.Count + 1);
+			}
+
+			if (randomNumber == buildings.Count)
+			{
+				lastIndex = -1;
+				return;
+			}
+
+			GameObject g = Instantiate(buildings[randomNumber]);
+			Vector3 startPos = new(40, g.transform.position.y, g.transform.position.z);
+			g.transform.position = startPos;
+			lastIndex = randomNumber;
+		}
+		count++;
+
 	}
 
 	private void Update()

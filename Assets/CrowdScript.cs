@@ -11,7 +11,7 @@ public class CrowdScript : MonoBehaviour
 	private void Start()
 	{
 		startPosition = transform.position;
-		destination = new Vector3(-17f, 0.5f, transform.position.z + Random.Range(0f, 1f));
+		destination = new Vector3(-24f, 0.5f, transform.position.z + Random.Range(0f, 1f));
 		moveSpeed = Random.Range(5f, 10f);
 	}
 
