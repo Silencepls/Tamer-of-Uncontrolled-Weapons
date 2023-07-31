@@ -14,10 +14,14 @@ public class CrowdScript : MonoBehaviour
 
 	private void Start()
 	{
-		GameManager.total_civ_crowds++;
 		startPosition = transform.position;
 		destination = new Vector3(-24f, 0.5f, transform.position.z + Random.Range(0f, 1f));
 		moveSpeed = Random.Range(5f, 10f);
+	}
+
+	private void OnEnable()
+	{
+		GameManager.total_civ_crowds++;
 	}
 
 	private void Update()

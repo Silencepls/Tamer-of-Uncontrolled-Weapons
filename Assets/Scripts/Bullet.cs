@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Civilian") || other.CompareTag("InDanger"))
+		if (other.CompareTag("Civilian"))
 		{
 			other.GetComponentInChildren<CivilianMovement>().DeathAnimation();
 		}

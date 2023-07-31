@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 	public int t = 0;
 	public int tc = 0;
 
+	private BulletState[] staticBulletState = { BulletState.First, BulletState.Second, BulletState.Third };
+	private BulletState[] BulletStateArray = { BulletState.First, BulletState.Second, BulletState.Third };
+	private bool lastWasFirst = true;
+
 	public static int saved_Civilians = 0;
 	public static int saved_Crowds = 0;
 
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
+		TimerEvent.Timer += EventHandler;
 		bullet_event += CivilianManager;
 		bullet_event?.Invoke();
 	}
@@ -77,6 +82,39 @@ public class GameManager : MonoBehaviour
 			bulletState = BulletState.Third;
 			bullet_event?.Invoke();
 		}
+	}
+
+	private int count2 = 0;
+
+	private void EventHandler()
+	{
+		if (count2 >= 45)
+		{
+			int randomNumber = Random.Range(0, 3);
+			if (!lastWasFirst)
+			{
+				randomNumber = Random.Range(0, 4);
+				if (randomNumber == 1)
+				{
+					randomNumber = 2;
+				}
+				else
+				{
+					randomNumber = 0;
+					lastWasFirst = true;
+				}
+				bulletState = BulletStateArray[randomNumber];
+			}
+			else
+			{
+				bulletState = BulletStateArray[randomNumber];
+				if (randomNumber == 0) lastWasFirst = true;
+				else lastWasFirst = false;
+			}
+			bullet_event?.Invoke();
+			count2 = 0;
+		}
+		count2++;
 	}
 
 	private void CivilianManager()
