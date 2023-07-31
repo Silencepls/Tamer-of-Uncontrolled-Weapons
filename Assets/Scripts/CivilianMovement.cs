@@ -12,6 +12,7 @@ public class CivilianMovement : MonoBehaviour
 	public float moveSpeed;
 
 	public IMovement cms = new FirstStateMovement();
+	public bool _protected = false;
 
 	private Vector3 a = Vector3.zero;
 	private bool isdying = false;
@@ -27,6 +28,11 @@ public class CivilianMovement : MonoBehaviour
 		GameManager.total_civs++;
 		moveSpeed = Random.Range(5f, 15f);
 		destination = new Vector3(-24f, 0.5f, Random.Range(-7.5f, 5f));
+		if (Vector3.Distance(transform.position, new Vector3(24, 0.5f, 5.8f)) < 0.1f ||
+			Vector3.Distance(transform.position, new Vector3(10.8f, 0.5f, -8.22f)) < 0.1f)
+		{
+			destination = new Vector3(-24f, 0.5f, transform.position.z);
+		}
 	}
 
 	private void Update()

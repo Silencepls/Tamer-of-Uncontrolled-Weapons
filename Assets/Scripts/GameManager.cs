@@ -158,8 +158,20 @@ public class GameManager : MonoBehaviour
 		civiliansStopped = new();
     }
 
+	private int _count = 0;
+	public GameObject civil1;
+	public GameObject civil2;
+
 	private void FirstState()
 	{
+		if(_count == 30)
+		{
+			Instantiate(civil1);
+			Instantiate(civil2);
+			_count = 0;
+		}
+		_count++;
+
 		if (timer != -1)
 		{
 			if (timer > 8)

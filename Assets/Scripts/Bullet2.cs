@@ -36,15 +36,18 @@ public class Bullet2 : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("InDanger"))
 		{
-			other.tag = "Civilian";
+			other.GetComponent<CivilianMovement>()._protected = true;
 			GameObject g = Instantiate(barrier);
+			g.GetComponent<Barrier>().civilian = other.gameObject;
 			g.transform.position = other.transform.position;
-			other.GetComponent<CivilianMovement>().barrier = g;
+
 			AudioManager.instance.Play("ShieldSound");
 		}
 	}
+
 }

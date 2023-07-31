@@ -35,16 +35,18 @@ public class MissileScript : MonoBehaviour
 		if (Vector3.Distance(transform.position, d) < 0.1f)
 		{
 			AudioManager.instance.Play("MissleInpact");
-			if (civilian.CompareTag("InDanger"))
+
+			if (!civilian.GetComponent<CivilianMovement>()._protected)
 			{
 				civilian.GetComponent<CivilianMovement>().DeathAnimation();
 			}
 
-			Destroy(civilian.GetComponent<CivilianMovement>().barrier);
-			AudioManager.instance.Pause("ShieldSound");
 			GameObject g = Instantiate(explosion);
 			g.transform.position = transform.position;
 			explosion = g;
+
+			civilian.tag = "Civilian";
+
 			TimerEvent.Timer += Func;
 			TimerEvent.Timer -= Initialize;
 		}
