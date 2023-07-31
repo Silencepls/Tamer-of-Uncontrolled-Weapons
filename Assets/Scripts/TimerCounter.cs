@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerCountDown : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class TimerCountDown : MonoBehaviour
 				UpdateTimerText();
 			}
 		}
+		else
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
 	}
 
 	private void UpdateTimerText()
@@ -38,15 +43,5 @@ public class TimerCountDown : MonoBehaviour
 		string minutesString = minutes.ToString("D2");
 		string secondsString = seconds.ToString("D2");
 		timerText.text = minutesString + ":" + secondsString;
-	}
-
-	public void StartTimer()
-	{
-		isTimerRunning = true;
-	}
-
-	public void StopTimer()
-	{
-		isTimerRunning = false;
 	}
 }

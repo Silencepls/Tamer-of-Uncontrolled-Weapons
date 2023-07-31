@@ -27,8 +27,6 @@ public class Scores : MonoBehaviour
 
 	void Update()
     {
-
-
 		try
 		{
 			total_civs = GameManager.total_civs;

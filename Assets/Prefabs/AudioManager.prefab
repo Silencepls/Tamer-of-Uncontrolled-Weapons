@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2675824385790735193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6745799904502401786}
+  - component: {fileID: 2957904294684481285}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6745799904502401786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675824385790735193}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.910578, y: 2.0358925, z: 5.4891443}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2957904294684481285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675824385790735193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a681ae7054142f4880952b86d5f0fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 17a8786ae0ead674883ca48f3c0c8512, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: FiringShield
+    clip: {fileID: 8300000, guid: 4fe54cf07aae8334d89120569ade6446, type: 3}
+    volume: 0.35
+    pitch: 1.69
+    source: {fileID: 0}
+    loop: 1
+  - name: GameSelectSound
+    clip: {fileID: 8300000, guid: 8f0e3ab450bb7124fbe5d520c1d2988a, type: 3}
+    volume: 0.35
+    pitch: 1.07
+    source: {fileID: 0}
+    loop: 0
+  - name: GunShot
+    clip: {fileID: 8300000, guid: 0461f8beca28d1345b5f996896507286, type: 3}
+    volume: 0.18
+    pitch: 1.46
+    source: {fileID: 0}
+    loop: 1
+  - name: LaserStrike
+    clip: {fileID: 8300000, guid: b68e2d424d947d946ac1ce9e030128a1, type: 3}
+    volume: 0.33
+    pitch: 1.52
+    source: {fileID: 0}
+    loop: 0
+  - name: MissleImpact
+    clip: {fileID: 8300000, guid: 31bfe9f244ae75c438d2d05d11489edb, type: 3}
+    volume: 0.41
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: MissleLaunch
+    clip: {fileID: 8300000, guid: 8ca8c5701dd500442b9b97696db858ea, type: 3}
+    volume: 0.25
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ShieldSound
+    clip: {fileID: 8300000, guid: 00a17715e388f4f44bb8910e33047ce0, type: 3}
+    volume: 0.25
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: SwitchingToBullets
+    clip: {fileID: 8300000, guid: 31ac1595f34a156419a1b1504b2561c6, type: 3}
+    volume: 0.35
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SwitchingToLaser
+    clip: {fileID: 8300000, guid: 332d5a3d14c28ab41988721ee3745ca8, type: 3}
+    volume: 0.35
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SwitchingToMissle
+    clip: {fileID: 8300000, guid: 5f9d708678419634bbbdb3aaadc689fc, type: 3}
+    volume: 0.35
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -66,22 +67,6 @@ public class GameManager : MonoBehaviour
 		ttc = total_civ_crowds;
 		t = saved_Civilians;
 		tc = saved_Crowds;
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			bulletState = BulletState.First;
-			bullet_event?.Invoke();
-		}
-		if (Input.GetKeyDown(KeyCode.Q))
-		{
-			bulletState = BulletState.Second;
-			bullet_event?.Invoke();
-		}
-		if (Input.GetKeyDown(KeyCode.E))
-		{
-			bulletState = BulletState.Third;
-			bullet_event?.Invoke();
-		}
 	}
 
 	private int count2 = 0;

@@ -35,6 +35,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PauseAllButTheme()
+    {
+		foreach (Sound s in sounds)
+		{
+			if (s.name != "Theme")
+            {
+                Pause(s.name);
+            }
+		}
+	}
+
+	public void UpdateVolume(float sliderValue)
+	{
+		foreach (Sound s in sounds)
+		{
+			s.source.volume = s.volume * sliderValue;
+		}
+	}
+
 	private void Start()
 	{
         Play("Theme");
