@@ -16,7 +16,12 @@ public class LaserLogic2 : MonoBehaviour
 	{
 		if (other.CompareTag("Crowd"))
 		{
-			Debug.Log("Laser");
+			other.GetComponent<Cube>().parent.GetComponent<CrowdParent>().MakeThemDie();
+		}
+
+		if (other.CompareTag("Civilian"))
+		{
+			other.GetComponentInChildren<CivilianMovement>().DeathAnimation();
 		}
 	}
 }
