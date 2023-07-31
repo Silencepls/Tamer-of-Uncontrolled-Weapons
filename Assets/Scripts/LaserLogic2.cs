@@ -9,11 +9,14 @@ public class LaserLogic2 : MonoBehaviour
     void Update()
     {
 		if (!PlayerMovement.shouldMove) return;
-		if (HackPosition.isRight)
-        {
-            transform.position = player.transform.position + new Vector3(24.95f, 0, 0);
-            return;
+		transform.position = player.transform.position + new Vector3(24.95f, 0, 0);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Crowd"))
+		{
+			Debug.Log("Laser");
 		}
-		transform.position = player.transform.position + new Vector3(-24.95f, 0, 0);
 	}
 }

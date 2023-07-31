@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
 		Destroy(g);
 	}
 
+	public static void RemoveFromList(GameObject g)
+	{
+		civiliansInMovement.Remove(g);
+	}
+
 	private void Start()
 	{
 		bullet_event += CivilianManager;

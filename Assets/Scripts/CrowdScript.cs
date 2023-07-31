@@ -28,4 +28,13 @@ public class CrowdScript : MonoBehaviour
 			gameObject.SetActive(false);
 		}
 	}
+
+	//public void DeathAnimation()
+	//{
+	//	isdying = true;
+
+	//	GameManager.RemoveFromList(gameObject);
+	//	a = new Vector3(transform.position.x, 10f, transform.position.z);
+	//	transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.red;
+	//}
 }

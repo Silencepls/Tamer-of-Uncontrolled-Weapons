@@ -9,6 +9,8 @@ TagManager:
   - Row
   - Civilian
   - InDanger
+  - Laser
+  - Crowd
   layers:
   - Default
   - TransparentFX

@@ -10,17 +10,6 @@ public class LaserLogic : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position;
-        if (!PlayerMovement.shouldMove) return;
-        Direction();       
+        if (!PlayerMovement.shouldMove) return;  
     }
-
-    private void Direction()
-    {
-		if (HackPosition.isRight)
-        {
-			transform.localScale = Vector3.one;
-            return;
-		}
-        transform.localScale = new Vector3(-1, 1, 1);
-	}
 }

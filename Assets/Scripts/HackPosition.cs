@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HackPosition : MonoBehaviour
 {
+	public static HackPosition ins;
+
 	public GameObject player;
 
 	public Image i;
@@ -15,6 +17,11 @@ public class HackPosition : MonoBehaviour
 
 	private void Start()
 	{
+		if (ins == null)
+		{
+			ins = this;
+		}
+
 		d = i.rectTransform.localScale;
 		e = d;
 	}
@@ -37,5 +44,12 @@ public class HackPosition : MonoBehaviour
 			d.x = e.x;
 			i.rectTransform.localScale = d;
 		}
+	}
+
+	public void LookToRight()
+	{
+		isRight = true;
+		d.x = e.x;
+		i.rectTransform.localScale = d;
 	}
 }

@@ -49,7 +49,7 @@ public class CivilianMovement : MonoBehaviour
 	{
 		isdying = true;
 
-		GameManager.RemoveFromList(gameObject, false);
+		GameManager.RemoveFromList(gameObject);
 		a = new Vector3(transform.position.x, 10f, transform.position.z);
 		transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.red;
 	}

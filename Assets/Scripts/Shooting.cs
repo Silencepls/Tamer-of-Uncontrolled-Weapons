@@ -67,6 +67,7 @@ public class Shooting : MonoBehaviour
 	{
 		if (count >= 20)
 		{
+			HackPosition.ins.LookToRight();
 			laser.SetActive(true);
 			laser_collider.GetComponent<BoxCollider>().enabled = true;
 			PlayerMovement.shouldMove = false;
