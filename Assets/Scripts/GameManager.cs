@@ -6,16 +6,22 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-	public static int saved_FirstBullet = 0;
-	public static int saved_SecondBullet = 0;
-	public static int saved_ThirdBullet = 0;
+	public static int total_civs = 0;
+	public static int total_civ_crowds = 0;
+
+	public int tt;
+	public int ttc;
+	public int t;
+	public int tc;
+
+	public static int saved_Civilians = 0;
+	public static int saved_Crowds = 0;
 
 	public static BulletState bulletState = BulletState.First;
 	public static Action bullet_event;
 
 	public static List<GameObject> civiliansInMovement = new();
 	public static List<GameObject> civiliansStopped = new();
-	private GameObject object_forTimeEvent;
 
 	public GameObject missileShadow;
 
@@ -31,6 +37,7 @@ public class GameManager : MonoBehaviour
 	public static void RemoveFromList(GameObject g)
 	{
 		civiliansInMovement.Remove(g);
+		saved_Civilians++;
 		Destroy(g);
 	}
 
@@ -42,6 +49,11 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
+		tt = total_civs;
+		ttc = total_civ_crowds;
+		t = saved_Civilians;
+		tc = saved_Crowds;
+
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			bulletState = BulletState.First;

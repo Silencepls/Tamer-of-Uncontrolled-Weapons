@@ -36,11 +36,12 @@ public class Bullet : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Civilian"))
+		if (other.CompareTag("Civilian") || other.CompareTag("InDanger"))
 		{
-			Debug.Log("Hurted a Civilian");
+			other.GetComponentInChildren<CivilianMovement>().DeathAnimation();
 		}
 	}
 }

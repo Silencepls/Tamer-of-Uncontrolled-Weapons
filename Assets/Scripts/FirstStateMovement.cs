@@ -8,6 +8,7 @@ public class FirstStateMovement : IMovement
 
 		if (Vector3.Distance(g.transform.position, destination) < 0.1f)
 		{
+			GameManager.saved_Civilians++;
 			GameManager.RemoveFromList(g);
 		}
 	}

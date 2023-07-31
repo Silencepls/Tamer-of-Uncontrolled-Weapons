@@ -58,8 +58,6 @@ public class Shooting : MonoBehaviour
 	private void ShootSecondBullet()
 	{
 		Vector3 direction_offseted = transform.forward;
-		direction_offseted.x += Random.Range(-.3f, .3f);
-		direction_offseted.z -= Random.Range(-.3f, .3f);
 		GameObject bullet = Instantiate(secondbulletPefab, transform.position + transform.forward, Quaternion.identity);
 		Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 		bulletRb.velocity = direction_offseted.normalized * bulletSpeed;
