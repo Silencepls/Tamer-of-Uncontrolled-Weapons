@@ -10,6 +10,7 @@ public class MissileScript : MonoBehaviour
 	public GameObject canvas;
 	public Image image;
 	public GameObject summoner;
+	public GameObject civilian;
 
 	public GameObject explosion;
 
@@ -33,6 +34,13 @@ public class MissileScript : MonoBehaviour
 	{
 		if (Vector3.Distance(transform.position, d) < 0.1f)
 		{
+			if (civilian.CompareTag("InDanger"))
+			{
+				Debug.Log("danger");
+				civilian.GetComponent<CivilianMovement>().DeathAnimation();
+			}
+
+			Destroy(civilian.GetComponent<CivilianMovement>().barrier);
 			GameObject g = Instantiate(explosion);
 			g.transform.position = transform.position;
 			explosion = g;

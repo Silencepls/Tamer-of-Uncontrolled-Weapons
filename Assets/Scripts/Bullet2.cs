@@ -4,6 +4,8 @@ public class Bullet2 : MonoBehaviour
 {
 	private int time = 0;
 
+	public GameObject barrier;
+
 	private void Start()
 	{
 		TimerEvent.Timer += AutoDestroy;
@@ -38,7 +40,10 @@ public class Bullet2 : MonoBehaviour
 	{
 		if (other.CompareTag("InDanger"))
 		{
-			Debug.Log("Saved an Civilian");
+			other.tag = "Civilian";
+			GameObject g = Instantiate(barrier);
+			g.transform.position = other.transform.position;
+			other.GetComponent<CivilianMovement>().barrier = g;
 		}
 	}
 }

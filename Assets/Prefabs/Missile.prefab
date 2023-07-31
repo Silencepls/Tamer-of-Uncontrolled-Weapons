@@ -298,4 +298,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2830628800621735275}
   image: {fileID: 5659407487017791652}
+  summoner: {fileID: 0}
   explosion: {fileID: 6770246421074532568, guid: b2361ed6e568e904a9dc19f5366d6137, type: 3}

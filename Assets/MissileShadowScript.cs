@@ -14,6 +14,8 @@ public class MissileShadowScript : MonoBehaviour
 
 	private RectTransform r;
 
+	public GameObject civilian;
+
 	private void Start()
 	{
 		r = GetComponent<RectTransform>();
@@ -43,6 +45,7 @@ public class MissileShadowScript : MonoBehaviour
 		g.transform.position = new Vector3(transform.position.x, 10f, transform.position.z);
 		var a = g.GetComponent<MissileScript>().canvas.GetComponent<RectTransform>();
 		g.GetComponent<MissileScript>().summoner = gameObject;
+		g.GetComponent<MissileScript>().civilian = civilian;
 
 		a.localScale = new Vector3(a.localScale.x, -a.localScale.y, a.localScale.z);
 

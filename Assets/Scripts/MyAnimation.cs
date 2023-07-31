@@ -38,4 +38,15 @@ public class MyAnimation : MonoBehaviour
 	{
 		TimerEvent.Timer -= Func;
 	}
+
+	private void OnDisable()
+	{
+		TimerEvent.Timer -= Func;
+	}
+
+	private void OnEnable()
+	{
+		if (i == null) return;
+		TimerEvent.Timer += Func;
+	}
 }

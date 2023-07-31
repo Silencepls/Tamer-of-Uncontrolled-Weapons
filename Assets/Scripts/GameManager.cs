@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
 	public static int total_civs = 0;
 	public static int total_civ_crowds = 0;
 
-	public int tt;
-	public int ttc;
-	public int t;
-	public int tc;
+	public int tt = 0;
+	public int ttc= 0;
+	public int t = 0;
+	public int tc = 0;
 
 	public static int saved_Civilians = 0;
 	public static int saved_Crowds = 0;
@@ -34,10 +34,13 @@ public class GameManager : MonoBehaviour
 		civiliansInMovement.Add(g);
 	}
 
-	public static void RemoveFromList(GameObject g)
+	public static void RemoveFromList(GameObject g, bool isSaved)
 	{
+		if (isSaved)
+		{
+			saved_Civilians++;
+		}
 		civiliansInMovement.Remove(g);
-		saved_Civilians++;
 		Destroy(g);
 	}
 
@@ -98,11 +101,15 @@ public class GameManager : MonoBehaviour
 
 	private void FallMissileToCivilians()
 	{
-        foreach (var o in civiliansStopped)
-        {
+		for (int i = 0; i < civiliansStopped.Count; i++)
+		{
+			var o = civiliansStopped[i];
 			GameObject s = Instantiate(missileShadow);
 			s.transform.position = new Vector3(o.transform.position.x, s.transform.position.y, o.transform.position.z);
-        }
+			s.GetComponent<MissileShadowScript>().civilian = o;
+		}
+
+		civiliansStopped = new();
     }
 
 	private void FirstState()
@@ -132,8 +139,10 @@ public class GameManager : MonoBehaviour
 		if (civiliansInMovement.Count <= 0) return;
 
 		GameObject g = civiliansInMovement[Random.Range(0, civiliansInMovement.Count)];
-		g.GetComponent<CivilianMovement>().cms = new NoMovement();
+		var a = g.GetComponent<CivilianMovement>();
 		g.tag = "InDanger";
+		a.cms = new NoMovement();
+		a.InDanger();
 
 		civiliansInMovement.Remove(g);
 		civiliansStopped.Add(g);
