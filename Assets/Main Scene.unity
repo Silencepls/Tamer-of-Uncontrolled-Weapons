@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.1809201, g: 0.22647028, b: 0.3072397, a: 1}
+  m_IndirectSpecularColor: {r: 0.18091972, g: 0.22646978, b: 0.30723906, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -562,67 +562,67 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 17a8786ae0ead674883ca48f3c0c8512, type: 3}
-    volume: 0.14
+    volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 1
   - name: FiringShield
     clip: {fileID: 8300000, guid: 4fe54cf07aae8334d89120569ade6446, type: 3}
-    volume: 0.14
-    pitch: 1.5
+    volume: 0.35
+    pitch: 1.69
     source: {fileID: 0}
     loop: 1
   - name: GameSelectSound
     clip: {fileID: 8300000, guid: 8f0e3ab450bb7124fbe5d520c1d2988a, type: 3}
-    volume: 0.14
-    pitch: 1
+    volume: 0.35
+    pitch: 1.07
     source: {fileID: 0}
     loop: 0
   - name: GunShot
-    clip: {fileID: 8300000, guid: fc3a582f12d6455488e56a6e18bd0a30, type: 3}
-    volume: 0.14
-    pitch: 2
+    clip: {fileID: 8300000, guid: 0461f8beca28d1345b5f996896507286, type: 3}
+    volume: 0.18
+    pitch: 1.46
     source: {fileID: 0}
     loop: 1
   - name: LaserStrike
     clip: {fileID: 8300000, guid: b68e2d424d947d946ac1ce9e030128a1, type: 3}
-    volume: 0.14
-    pitch: 1
+    volume: 0.33
+    pitch: 1.52
     source: {fileID: 0}
     loop: 0
   - name: MissleImpact
     clip: {fileID: 8300000, guid: 31bfe9f244ae75c438d2d05d11489edb, type: 3}
-    volume: 0.14
+    volume: 0.41
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: MissleLaunch
     clip: {fileID: 8300000, guid: 8ca8c5701dd500442b9b97696db858ea, type: 3}
-    volume: 0.14
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: ShieldSound
     clip: {fileID: 8300000, guid: 00a17715e388f4f44bb8910e33047ce0, type: 3}
-    volume: 0.082
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
     loop: 1
   - name: SwitchingToBullets
     clip: {fileID: 8300000, guid: 31ac1595f34a156419a1b1504b2561c6, type: 3}
-    volume: 0.14
+    volume: 0.35
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: SwitchingToLaser
     clip: {fileID: 8300000, guid: 332d5a3d14c28ab41988721ee3745ca8, type: 3}
-    volume: 0.14
+    volume: 0.35
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: SwitchingToMissle
     clip: {fileID: 8300000, guid: 5f9d708678419634bbbdb3aaadc689fc, type: 3}
-    volume: 0.14
+    volume: 0.35
     pitch: 1
     source: {fileID: 0}
     loop: 0
