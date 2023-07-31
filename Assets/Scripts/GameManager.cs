@@ -122,11 +122,13 @@ public class GameManager : MonoBehaviour
 		switch(bulletState)
 		{
 			case BulletState.First:
+				AudioManager.instance.Play("SwitchingToBullets");
 				TimerEvent.Timer -= FirstState;
 				TimerEvent.Timer += FirstState;
 				break;
 			
 			case BulletState.Second:
+				AudioManager.instance.Play("SwitchingToMissle");
 				int randomNumber = Random.Range(0, civiliansInMovement.Count);
 				for (int i = 0; i <= randomNumber; i++)
 				{
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
 				break;	
 			
 			case BulletState.Third:
+				AudioManager.instance.Play("SwitchingToLaser");
 				TimerEvent.Timer -= FirstState;
 				ThirdState();
 				break;

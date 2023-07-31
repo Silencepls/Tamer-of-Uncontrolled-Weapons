@@ -44,6 +44,7 @@ public class Bullet2 : MonoBehaviour
 			GameObject g = Instantiate(barrier);
 			g.transform.position = other.transform.position;
 			other.GetComponent<CivilianMovement>().barrier = g;
+			AudioManager.instance.Play("ShieldSound");
 		}
 	}
 }

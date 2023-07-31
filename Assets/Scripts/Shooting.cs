@@ -23,6 +23,8 @@ public class Shooting : MonoBehaviour
 		switch (GameManager.bulletState)
 		{
 			case BulletState.First:
+				AudioManager.instance.Pause("FiringShield");
+				AudioManager.instance.Play("GunShot");
 				TimerEvent.Timer -= ShootFirstBullet;
 				TimerEvent.Timer -= ShootThirdBullet;
 				TimerEvent.Timer -= ShootSecondBullet;
@@ -30,6 +32,8 @@ public class Shooting : MonoBehaviour
 				break;
 
 			case BulletState.Second:
+				AudioManager.instance.Pause("GunShot");
+				AudioManager.instance.Play("FiringShield");
 				TimerEvent.Timer -= ShootSecondBullet;
 				TimerEvent.Timer -= ShootThirdBullet;
 				TimerEvent.Timer += ShootSecondBullet;
@@ -37,6 +41,8 @@ public class Shooting : MonoBehaviour
 				break;
 
 			case BulletState.Third:
+				AudioManager.instance.Pause("FiringShield");
+				AudioManager.instance.Pause("GunShot");
 				TimerEvent.Timer -= ShootThirdBullet;
 				TimerEvent.Timer += ShootThirdBullet;
 				TimerEvent.Timer -= ShootSecondBullet;
@@ -67,6 +73,7 @@ public class Shooting : MonoBehaviour
 	{
 		if (count >= 20)
 		{
+			AudioManager.instance.Play("LaserStrike");
 			HackPosition.ins.LookToRight();
 			laser.SetActive(true);
 			laser_collider.GetComponent<BoxCollider>().enabled = true;

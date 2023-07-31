@@ -57,13 +57,13 @@ public class CivilianMovement : MonoBehaviour
 	public void InDanger()
 	{
 		cms = new NoMovement();
-		transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = inDanger;
 		TimerEvent.Timer += Func;
 	}
 
 	private void Func()
 	{
 		transform.GetChild(0).GetChild(0).GetComponent<MyAnimation>().enabled = false;
+		transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = inDanger;
 		if (count >= 80)
 		{
 			cms = new FirstStateMovement();
