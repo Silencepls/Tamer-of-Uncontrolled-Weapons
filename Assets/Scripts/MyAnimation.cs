@@ -15,20 +15,27 @@ public class MyAnimation : MonoBehaviour
 	private void Start()
 	{
 		i = GetComponent<Image>();
-		TimerEvent.Timer += () =>
-		{
-			if (frame == _animation.Length)
-			{
-				frame = 0;
-			}
+		TimerEvent.Timer += Func;
+	}
 
-			if (count == 5)
-			{
-				i.sprite = _animation[frame];
-				frame++;
-				count = 0;
-			}
-			count++;
-		};
+	private void Func()
+	{
+		if (frame == _animation.Length)
+		{
+			frame = 0;
+		}
+
+		if (count == 5)
+		{
+			i.sprite = _animation[frame];
+			frame++;
+			count = 0;
+		}
+		count++;
+	}
+
+	private void OnDestroy()
+	{
+		TimerEvent.Timer -= Func;
 	}
 }
