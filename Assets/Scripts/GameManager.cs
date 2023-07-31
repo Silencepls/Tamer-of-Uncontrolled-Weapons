@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		//TimerEvent.Timer += EventHandler;
+		TimerEvent.Timer += EventHandler;
 		bullet_event += CivilianManager;
 		bullet_event?.Invoke();
 	}

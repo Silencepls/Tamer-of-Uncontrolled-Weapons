@@ -513,6 +513,7 @@ Transform:
   - {fileID: 541843990}
   - {fileID: 1484712132}
   - {fileID: 534060521}
+  - {fileID: 614159800}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534060520
@@ -736,6 +737,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7910773823108141137, guid: 69bb7460967edc8489870e135c27113f, type: 3}
   m_PrefabInstance: {fileID: 541843989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &614159799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 614159800}
+  - component: {fileID: 614159801}
+  m_Layer: 0
+  m_Name: Scores
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &614159800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614159799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494261352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &614159801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614159799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179dbc495833f19489a770f6918d1a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  total_civs: 0
+  total_civ_crowds: 0
+  saved_Civilians: 0
+  saved_Crowds: 0
 --- !u!114 &666775956 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6493941226319129612, guid: 801faec812abd6f43af85eecf577222d, type: 3}
